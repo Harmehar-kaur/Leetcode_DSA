@@ -48,3 +48,42 @@ class Solution {
 	}
 }
 
+//Sum of even Numbers
+import java.util.Scanner;
+
+class Solution {
+	
+	public static void main(String args[]) {
+		
+		// Write code here
+		Scanner s = new Scanner(System.in); 
+		int n = s.nextInt();
+		int sumOfEvenNumber = 0; 
+		for(int i=0; i<=n;i+=2){
+			sumOfEvenNumber+=i; 
+		}
+		System.out.println(sumOfEvenNumber);
+	}
+}
+
+
+//Farenheit to celsius 
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+#Your code goes here
+
+S=int(input())
+E=int(input())
+W=int(input())
+celsiusTemp=0
+for i in range(S,E+1,W): 
+    celsiusTemp = int((i-32)*5/9)
+    if(celsiusTemp >= 0):
+        celsiusPrint = floor(celsiusTemp)
+    else:
+        celsiusPrint =ceil(celsiusTemp)
+    print(i,celsiusPrint,sep=" ") 
