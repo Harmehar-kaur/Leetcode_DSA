@@ -615,3 +615,239 @@ class Solution {
     }
 
 }
+//Last index element
+import java.util.Scanner;
+
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(); // number of elements
+        int arr[] = new int[n];
+        // Initializing array elements
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int x = sc.nextInt(); // Element whose index to be searched
+        lastIndex(arr, n, x);
+    }
+
+    // Function for finding last occurrence
+    static void lastIndex(int[] arr, int n, int x) {
+        int last = -1;
+        for (int i = n - 1; i >= 0; i--) {
+            if (x == arr[i]) {
+                last = i;
+                break;
+            }
+
+        }
+        System.out.println(last);
+    }
+
+}
+
+//reverse an array 
+import java.util.Scanner;
+
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(); // number of elements
+        int arr[] = new int[n];
+        // Initializing array elements
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        reverseArray(arr, 0, n - 1, n);
+    }
+
+    // Function to reverse array
+    static void reverseArray(int arr[], int start, int end, int size) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+}
+
+//rotate an array 
+import java.util.Scanner;
+
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(); // number of elements
+        int arr[] = new int[n];
+        // Initializing array elements
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int k = sc.nextInt(); // No. of times to rotate
+        rotateArray(arr, n, k);
+    }
+
+    static void rotateArray(int arr[], int n, int k) {
+        // storing 1st k elements in temporary array
+        int temp[] = new int[k];
+        for (int i = 0; i < k; i++) {
+            temp[i] = arr[i];
+        }
+        // shifting remaining elements of the array
+    
+        for (int i = k; i < n; i++) {
+            arr[i - k] = arr[i];
+        }
+    
+        //storing back the k elements to the orignal array
+        for (int i = 0; i < k; i++) {
+            arr[n - k + i] = temp[i];
+        }
+        //printing array
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+}
+
+//kth smallest/largest element 
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Solution {
+
+	static void kthSmallestLargest(int arr[], int n, int k) {
+		Arrays.sort(arr);
+		// kthlargest
+		int z = n - 1;
+		int mn = Integer.MAX_VALUE;
+		int count = 0;
+		int flag = 0;
+
+		while (z >= 0) {
+
+			if (arr[z] < mn) {
+				mn = arr[z];
+				count++;
+			}
+			if (count == k) {
+				flag = 1;
+				System.out.print(arr[z] + " ");
+				break;
+			}
+
+			z--;
+		}
+		if (flag == 0) {
+			System.out.print("-1 ");
+		}
+
+		// kthSmallest
+		count = 0;
+		mn = Integer.MIN_VALUE;
+		flag = 0;
+
+		for (int i = 0; i < n; i++) {
+
+			if (arr[i] > mn) {
+				mn = arr[i];
+				count++;
+			}
+			if (count == k) {
+				flag = 1;
+				System.out.println(arr[i]);
+				break;
+			}
+		}
+		if (flag == 0) {
+			System.out.println(-1);
+		}
+	}
+
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while (t > 0) {
+			int n = sc.nextInt();
+			int k = sc.nextInt();
+
+			int arr[] = new int[n];
+			for (int i = 0; i < n; i++) {
+				arr[i] = sc.nextInt();
+			}
+			kthSmallestLargest(arr, n, k);
+			t--;
+		}
+	}
+}
+
+//sort012
+import java.util.Scanner;
+
+class Solution {
+
+	static void sort012(int arr[], int n) {
+		 // Taking two pointer one at begining and other at the end of array.
+		 int low = 0;
+		 int high = n - 1;
+		 int i = 0;
+	 
+		 while (i <= high) {
+	 
+			 // if arr[i] is equal to 0
+			 if (arr[i] == 0) {
+				 int t;
+				 t = arr[low];
+				 arr[low] = arr[i];
+				 arr[i] = t;
+				 low++;
+				 i++;
+			 } else if (arr[i] == 2) {
+				 int t;
+				 t = arr[high];
+				 arr[high] = arr[i];
+				 arr[i] = t;
+				 high--;
+			 }
+			 // if arr[i] is not equal to 0 and 2.
+			 else {
+				i++;
+			 }	 
+		 }
+	}
+
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		StringBuilder sb = new StringBuilder();
+		while (t > 0) {
+			int n = sc.nextInt();
+			int arr[] = new int[n];
+			for (int i = 0 ; i < n ; i++) {
+				arr[i] = sc.nextInt();
+			}
+			sort012(arr, n);
+			for (int i = 0 ; i < n; i++) {
+				sb.append(arr[i] + " ");
+			}
+			sb.append('\n');;
+			t--;
+		}
+		System.out.println(sb);
+	}
+}
