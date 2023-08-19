@@ -1,3 +1,58 @@
+//complex numbers
+import java.util.Scanner;
+
+class ComplexNumbers {
+	
+	int real, imaginary; 
+
+	public ComplexNumbers(int real, int imaginary){
+		this.real = real;
+		this.imaginary = imaginary;
+	}
+
+	public void plus(ComplexNumbers C2){
+		this.real += C2.real; 
+		this.imaginary += C2.imaginary; 
+		print(this.real, this.imaginary);
+	}
+
+	public void multiply(ComplexNumbers C2){
+		int newReal = this.real * C2.real - this.imaginary * C2.imaginary;
+		int newImaginary = this.real * C2.imaginary + this.imaginary * C2.real;
+		print(newReal, newImaginary);
+	}
+
+	public void print(int real, int imaginary){
+		System.out.println(real + " + i" + imaginary);
+	}
+}
+
+class Solution {
+	
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		// Input
+		int real1 = sc.nextInt();
+		int imaginary1 = sc.nextInt();
+		int real2 = sc.nextInt();
+		int imaginary2 = sc.nextInt();
+		int operation = sc.nextInt();
+		
+		// Creating complex numbers
+		ComplexNumbers c1 = new ComplexNumbers(real1, imaginary1);
+		ComplexNumbers c2 = new ComplexNumbers(real2, imaginary2);
+
+		// Performing operations based on input
+		if (operation == 1) {
+			c1.plus(c2);
+		} else if (operation == 2) {
+			c1.multiply(c2);
+		}
+	}
+}
+
+
 //Polynomial class
 import java.io.BufferedReader;
 import java.io.IOException;
