@@ -285,6 +285,7 @@ public:
 		}
 		return 0;
 	}
+	
 	// insertion
 	void insertAtBeginning(int data)
 	{
