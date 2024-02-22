@@ -16,6 +16,27 @@ public class FindDuplicate{
 
         return -1; 
     }
+
+
+    //this is another question but since the answer was kinda same this is used again
+    public static int findDuplicate(ArrayList<Integer> arr) {
+
+		//    Write your code here.
+		int n=arr.size(); 
+		int[] frequency = new int[n+1];
+
+        for(int num:arr){
+            frequency[num]++;
+        }
+
+        for(int i=0;i<=n;i++){
+            if(frequency[i]>1){
+                return i; 
+            }
+        }
+
+        return -1; 
+	}
 }
 
 /* In the above code we make a array to store frequency and then iterate throught the array increasing the frequency of the 
