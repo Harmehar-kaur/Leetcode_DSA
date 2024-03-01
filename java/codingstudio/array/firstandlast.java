@@ -1,3 +1,5 @@
+package codingstudio.array;
+
 import java.util.ArrayList;
 
 public class firstandlast {

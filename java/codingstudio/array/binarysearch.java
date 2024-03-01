@@ -1,3 +1,5 @@
+package codingstudio.array;
+
 public class binarysearch {
     public static int search(int[] nums, int target) {
         // Write your code here.
