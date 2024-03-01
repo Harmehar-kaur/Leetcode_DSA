@@ -1,5 +1,3 @@
-package DSA.arrays;
-
 import java.util.ArrayList;
 
 class staticanddynamic {

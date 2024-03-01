@@ -11,7 +11,9 @@
 // Similarly, if the element is 1 then keep it as it is.
 // If the element is 2 then swap it with an element in high range.
 
-public class Sort012 {
+import java.util.*;
+
+public class Sort012{
     public static void sort012(int[] arr) {
         int low = 0;
         int mid = 0;
@@ -36,5 +38,29 @@ public class Sort012 {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        
+        while (t-- > 0) {
+            int n = scanner.nextInt();
+            int[] arr = new int[n];
+            
+            for (int i = 0; i < n; i++) {
+                arr[i] = scanner.nextInt();
+            }
+            
+            sort012(arr);
+            
+            for (int num : arr) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+        
+        scanner.close();
+    }
 }
 
+    
