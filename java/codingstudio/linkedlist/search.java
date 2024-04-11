@@ -1,6 +1,5 @@
 package codingstudio.linkedlist;
 
-
 public class search {
     
     public static int searchInLinkedList(Node head, int k)
